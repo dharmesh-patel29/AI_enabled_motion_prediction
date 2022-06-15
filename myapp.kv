@@ -1,0 +1,223 @@
+#Creating the screen
+
+ScreenManager:
+    LoginScreen:
+    SignupScreen:
+    MainScreen:
+
+<LoginScreen>:
+    name:'login screen'
+    MDCard:
+        size_hint : None,None
+        size :400,600
+        pos_hint : {"center_x":.5,"center_y":.5}
+        elevation : 15
+        padding : 20
+        spacing : 30
+        orientation : "vertical"
+        # Adding items to the card
+        MDLabel:
+            text:'LOGIN'
+            font_style: 'Button'
+            font_size: 35
+            halign: "center"
+            size_hint_y: None
+            height: self.texture_size[1]
+            padding_y: 10
+        MDTextFieldRound:
+            hint_text: "username"
+            icon_right: "account"
+            size_hint_x: None
+            width: 220
+            font_size: 20
+            pos_hint: {"center_x":.5}
+            color_active: [1,1,1,1]
+        MDTextFieldRound:
+            hint_text: "password"
+            icon_right: "eye-off"
+            size_hint_x: None
+            width: 220
+            font_size: 20
+            pos_hint: {"center_x":.5}
+            color_active: [1,1,1,1]
+            password: True
+        MDRoundFlatButton:
+            text: 'LOGIN'
+            pos_hint: {"center_x":.5}
+            font_size: 15
+
+        MDRoundFlatButton:
+            text: 'SIGNUP'
+            pos_hint: {"center_x":.5}
+            font_size: 15
+            on_press:
+                root.manager.current = 'signup-screen'
+                root.manager.transition.direction = 'left'
+        
+        Widget:
+            size_hint_y: None
+            height: 30
+
+
+<SignupScreen>:
+    name:'signup-screen'
+    MDCard:
+        orientation: 'vertical'
+        size_hint: None,None
+        size: 400,600
+        pos_hint: {"center_x":.5,"center_y":.5}
+        elevation: 15
+        padding: 20
+        spacing: 30
+        MDLabel:
+            text: "SIGN-UP"
+            font_style: "Button"
+            font_size: 30
+            halign: "center"
+            size_hint_y: None
+            height: self.texture_size[1]
+            padding_y: 30
+        MDTextFieldRound:
+            hint_text: "username"
+            size_hint_x: None
+            icon_right: "account"
+            width: 270
+            font_size: 20
+            pos_hint: {"center_x":.5}
+            normal_color: [35/255,49/255,48/255,1]
+            color_active: [1,1,1,1]
+
+        MDTextFieldRound: 
+            hint_text: "password"
+            password: True
+            size_hint_x: None
+            icon_right: "eye-off"
+            width: 270
+            font_size: 20
+            pos_hint: {"center_x":.5}
+            normal_color: [35/255,49/255,48/255,1]
+            color_active: [1,1,1,1]
+        MDTextFieldRound: 
+            hint_text: "confirm-password"
+            size_hint_x: None
+            password: True
+            icon_right: "eye-off"
+            width: 270
+            font_size: 20
+            pos_hint: {"center_x":.5}
+            normal_color: [35/255,49/255,48/255,1]
+            color_active: [1,1,1,1]
+
+        MDRoundFlatButton:
+            text: "SIGN-UP"
+            font_size: 15
+            pos_hint: {"center_x":.5}
+            theme_text_color: "Custom"
+            on_press:
+                root.manager.current = 'mainscreen'
+                root.manager.transition.direction = 'right'
+        
+
+        MDRoundFlatButton:
+            text: "BACK"
+            font_size: 15
+            pos_hint: {"center_x":.5}
+            theme_text_color: "Custom"
+            on_press:
+                root.manager.current = 'login screen'
+                root.manager.transition.direction = 'right'
+
+<MainScreen>:  
+    name:'mainscreen'
+    MDFloatLayout:
+        md_bg_color: rgba(246,250,255,255)
+        ProfileCard:
+            size_hint_y: 0.65
+            pos_hint: {"center_y":0.7}
+            elevation: 6
+            md_bg_color: 1,1,1,1
+            radius: [0,0,20,20]
+            MDIconButton:
+                icon: "arrow-left"
+                pos_hint: {"center_y"}
+                pos_hint:{"center_y": 0.91}
+                user_font_size: "20sp"
+                theme_text_color: "Custom"
+                text_color: rgba(71,92,119,255)
+                on_press:
+                    root.manager.current = 'login screen'
+                    root.manager.transition.direction = 'left'
+
+            MDLabel:
+                text: "Movement Analsis"
+                #font_name: "BPoppins"
+                font_size: "20sp"
+                pos_hint: {"center_x": 0.56, "center_y":0.82}
+                color: rgba(71,92,119,255)
+
+            MDSeparator:
+                height: "5dp"
+                pos_hint: {"center_x": 0.56, "center_y":0.77}
+                color: rgba(71,92,119,255)
+                size: self.size
+
+            MDLabel:
+                text: "sitting "
+                #font_name: "BPoppins"
+                font_size: "20sp"
+                pos_hint: {"center_x": 0.56, "center_y":0.71}
+                color: rgba(71,92,119,255)
+
+            GridLayout:
+                cols: 3
+                orientation: "tb-lr"
+                size_hint_y: None
+                pos_hint: {"center_x": 0.56, "center_y": 0.56}
+                height: self.minimum_height
+                padding: "5dp"
+                spacing: "5dp"
+
+                MDIconButton:
+                    icon: 'location-enter'
+                    icon_size: "45sp"
+                    MDLabel:
+                        text: "Check-in"
+                        font_size: "12dp"
+
+                MDIconButton:
+                    icon: 'location-exit'
+
+                MDIconButton:
+                    icon: 'alarm'
+                    
+                    # halign: 'center'
+                #MDLabel:
+                    text: "Check-in"
+                    font_size: "12dp"
+                    # halign: 'center'
+
+                MDIconButton:
+                    icon: 'location-exit'
+                    # halign: 'center'
+                #MDLabel:
+                    text: "Check-out"
+                    font_size: "12dp"
+                    #  halign: 'center'
+
+                MDIconButton:
+                    icon: 'alarm'
+                    # halign: 'center'
+                #MDLabel:
+                    text: "Notifications on"
+                    font_size: "10dp"
+                    # halign: 'center'
+            
+
+
+
+
+
+
+
+
+
