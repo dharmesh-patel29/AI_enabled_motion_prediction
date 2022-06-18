@@ -1,4 +1,6 @@
 # Creating App
+from cProfile import Profile
+from unicodedata import name
 from kivymd.app import MDApp
 from kivy.uix.screenmanager import ScreenManager, Screen
 from kivy.lang import Builder
@@ -9,8 +11,12 @@ from kivymd.uix.floatlayout import MDFloatLayout
 from kivy.uix.widget import Widget
 from kivymd.uix.screen import MDScreen
 from kivymd.uix.card import MDCard
+from kivy.uix.scrollview import ScrollView
 
 Window.size= (320,510)
+
+class MDScreen(Screen):
+    pass
 
 class LoginScreen(Screen):
     pass
@@ -36,6 +42,9 @@ class YearlyGraph(Screen):
 class Setting(Screen):
     pass
 
+class Profile(Screen):
+    pass
+
 sm = ScreenManager()
 sm.add_widget(LoginScreen(name='login screen'))
 sm.add_widget(SignupScreen(name='signup-screen'))
@@ -45,6 +54,7 @@ sm.add_widget(DailyGraph(name='dailygraph'))
 sm.add_widget(MonthlyGraph(name='monthlygraph'))
 sm.add_widget(YearlyGraph(name='yearlygraph'))
 sm.add_widget(Setting(name='setting'))
+sm.add_widget(Profile(name='profile'))
 
 class ProfileCard(MDFloatLayout, FakeRectangularElevationBehavior):
     pass

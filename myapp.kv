@@ -7,6 +7,8 @@ ScreenManager:
     MonthlyGraph:
     YearlyGraph:
     Setting:
+    Profile:
+    MDScreen:
 
 <LoginScreen>:
     name:'login screen'
@@ -556,7 +558,8 @@ ScreenManager:
         radius: 30,30,30,30
         pos_hint: {"center_x": 0.50, "center_y": 0.50}
         on_press:
-            root.manager.current = 'dailygraph'
+            root.manager.current = 'profile'
+            root.manager.transition.direction = 'right'
     MDRoundFlatButton:
         text:"Notification Settings"
         theme_text_color: "Custom"
@@ -565,6 +568,41 @@ ScreenManager:
         on_press:
             root.manager.current = 'dailygraph'
 
+<Profile>:
+    name: 'profile'
+    MDIconButton:
+        icon: "arrow-left"
+        pos_hint:{"center_x":0.1,"center_y":0.97}
+        user_font_size: "30sp"
+        theme_text_color: "Custom"
+        text_color: rgba(71,92,119,255)
+        on_press:
+            root.manager.current = 'setting'
+            root.manager.transition.direction = 'left'
+    MDLabel:
+        text: "Profile"
+        theme_text_color: "Secondary"
+        font_size: "20sp"
+        pos_hint: {"center_x": 0.90, "center_y":0.97}
+        color: rgba(71,92,119,255)
+<MDScreen>:
+    ScrollView:
+        do_scroll_x: False
+        do_scroll_y: True
+        bar_width: 10
+        bar_color: app.theme_cls.primary_color
+        bar_color_acrive: app.theme_cls.accent_color
+        effect_cls: "DampedScrollEffect"
+        scroll_type: ['bars']
+        BoxLayout:
+            orientation: 'vertical'
+            padding: "10dp"
+            spacing: "15dp"
+            size_hint_y: None
+            height: self.minimum_height
+
+            Profile:
+    
 
 
 
