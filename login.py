@@ -1,5 +1,6 @@
 # Creating App
 from cProfile import Profile
+from calendar import c
 from unicodedata import name
 from kivymd.app import MDApp
 from kivy.uix.screenmanager import ScreenManager, Screen
@@ -12,6 +13,15 @@ from kivy.uix.widget import Widget
 from kivymd.uix.screen import MDScreen
 from kivymd.uix.card import MDCard
 from kivy.uix.scrollview import ScrollView
+from kivymd.uix.behaviors import RoundedRectangularElevationBehavior
+from kivymd.uix.menu import MDDropdownMenu
+from kivymd.uix.menu import MDDropdownMenu
+from kivy.metrics import dp
+from kivy.properties import StringProperty
+
+import test # importing self made
+
+from kivymd.uix.list import OneLineIconListItem
 
 Window.size= (320,510)
 
@@ -45,6 +55,16 @@ class Setting(Screen):
 class Profile(Screen):
     pass
 
+class Notification(Screen):
+    pass
+
+class ProfileScoller(ScrollView):
+    pass
+
+class MDCard1(MDCard):
+    pass
+
+
 sm = ScreenManager()
 sm.add_widget(LoginScreen(name='login screen'))
 sm.add_widget(SignupScreen(name='signup-screen'))
@@ -59,10 +79,25 @@ sm.add_widget(Profile(name='profile'))
 class ProfileCard(MDFloatLayout, FakeRectangularElevationBehavior):
     pass
 
+class UserCard(MDCard):
+    pass
+
+class MovementAnalysisCard(ProfileCard):
+    pass
+
+class MotivationTaskCard(ProfileCard):
+    pass
+
+class SettingsCard(ProfileCard):
+    pass
+
+
 class MyApp(MDApp):
+
     def build(self):
+        
         self.theme_cls.theme_style = "Light"
         return Builder.load_file('myapp.kv')
-
+       
 if __name__ == "__main__":
     MyApp().run()

@@ -9,6 +9,7 @@ ScreenManager:
     Setting:
     Profile:
     MDScreen:
+    Notification:
 
 <LoginScreen>:
     name:'login screen'
@@ -140,7 +141,7 @@ ScreenManager:
             on_press:
                 root.manager.current = 'login screen'
                 root.manager.transition.direction = 'right'
-        ProfileCard:
+        MovementAnalysisCard:
             orientation: "vertical"
             padding: "10dp"
             spacing: "5dp"
@@ -188,7 +189,7 @@ ScreenManager:
                 MDLabel:
                     text: "Notifications"
                     font_size: "12dp"
-    ProfileCard:
+    MotivationTaskCard:
         orientation: "vertical"
         padding: "10dp"
         spacing: "5dp"
@@ -567,7 +568,7 @@ ScreenManager:
         radius: 30,30,30,30
         pos_hint: {"center_x": 0.50, "center_y": 0.40}
         on_press:
-            root.manager.current = 'dailygraph'
+            root.manager.current = 'notification'
 
 <Profile>:
     name: 'profile'
@@ -586,23 +587,128 @@ ScreenManager:
         font_size: "20sp"
         pos_hint: {"center_x": 0.90, "center_y":0.97}
         color: rgba(71,92,119,255)
-<MDScreen>:
-    ScrollView:
-        do_scroll_x: False
-        do_scroll_y: True
-        bar_width: 10
-        bar_color: app.theme_cls.primary_color
-        bar_color_acrive: app.theme_cls.accent_color
-        effect_cls: "DampedScrollEffect"
-        scroll_type: ['bars']
-        BoxLayout:
-            orientation: 'vertical'
-            padding: "10dp"
-            spacing: "15dp"
-            size_hint_y: None
-            height: self.minimum_height
+    UserCard:
+        size_hint : None,None
+        size :280,470
+        pos_hint : {"center_x":.5,"center_y":.45}
+        elevation : 15
+        padding : 10
+        spacing : 5
+        orientation : "vertical"
+        # Adding items to the card
+        
+        MDTextFieldRound:
+            hint_text: "Name"
+            size_hint_x: None
+            width: 220
+            font_size: 20
+            pos_hint: {"center_x":.5}
+            color_active: [1,1,1,1]
+        
+        MDTextFieldRound:
+            id: click_label
+            hint_text: "Age"
+            size_hint_x: None
+            width: 220
+            font_size: 20
+            pos_hint: {"center_x":.5}
+            color_active: [1,1,1,1]
+        
+        MDTextFieldRound:
+            hint_text: "Weight [kg]"
+            size_hint_x: None
+            width: 220
+            font_size: 20
+            pos_hint: {"center_x":.5}
+            color_active: [1,1,1,1]
+        
+        MDTextFieldRound:
+            hint_text: "Height [m]"
+            size_hint_x: None
+            width: 220
+            font_size: 20
+            pos_hint: {"center_x":.5}
+            color_active: [1,1,1,1]
+        MDTextFieldRound:
+            hint_text: "Job position"
+            size_hint_x: None
+            width: 220
+            font_size: 20
+            pos_hint: {"center_x":.5}
+            color_active: [1,1,1,1]
+            
+        MDRoundFlatButton:
+            text: "Save"
+            font_size: 15
+            pos_hint: {"center_x":.5}
+            theme_text_color: "Custom"
+            #on_press:
+                #root.manager.current = 'setting'
+                #root.manager.transition.direction = 'right'
 
-            Profile:
+        MDRoundFlatButton:
+            text: "BACK"
+            font_size: 15
+            pos_hint: {"center_x":.5}
+            theme_text_color: "Custom"
+            on_press:
+                root.manager.current = 'setting'
+                root.manager.transition.direction = 'right'
+
+<Notification>:
+    name: 'notification'
+
+    MDIconButton:
+        icon: "arrow-left"
+        pos_hint:{"center_x":0.1,"center_y":0.97}
+        user_font_size: "30sp"
+        theme_text_color: "Custom"
+        text_color: rgba(71,92,119,255)
+        on_press:
+            root.manager.current = 'setting'
+            root.manager.transition.direction = 'left'
+    MDLabel:
+        text: "Notification"
+        theme_text_color: "Secondary"
+        font_size: "20sp"
+        pos_hint: {"center_x": 0.90, "center_y":0.97}
+        color: rgba(71,92,119,255)
+    UserCard:
+        size_hint : None,None
+        size :280,470
+        pos_hint : {"center_x":.5,"center_y":.45}
+        elevation : 30
+        padding : 10
+        spacing : 5
+        orientation : "vertical"
+        radius: 20,20,20,20
+        # Adding items to the card
+
+
+
+       
+
+        
+
+
+        
+
+
+
+        
+        
+           
+    
+
+
+    
+
+        
+
+
+    
+
+
     
 
 
