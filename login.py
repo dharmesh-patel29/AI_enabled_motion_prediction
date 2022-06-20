@@ -18,6 +18,8 @@ from kivymd.uix.menu import MDDropdownMenu
 from kivymd.uix.menu import MDDropdownMenu
 from kivy.metrics import dp
 from kivy.properties import StringProperty
+from kivy.properties import ObjectProperty
+from kivy.uix.floatlayout import FloatLayout
 
 import test # importing self made
 
@@ -87,17 +89,27 @@ class MovementAnalysisCard(ProfileCard):
 
 class MotivationTaskCard(ProfileCard):
     pass
+class ButtonCard(ProfileCard):
+    pass
 
 class SettingsCard(ProfileCard):
     pass
 
+class Layout_(FloatLayout):
+    pass
+
 
 class MyApp(MDApp):
+    
 
     def build(self):
         
         self.theme_cls.theme_style = "Light"
         return Builder.load_file('myapp.kv')
+
+
+
+
        
 if __name__ == "__main__":
     MyApp().run()

@@ -129,161 +129,177 @@ ScreenManager:
 
 <MainScreen>:  
     name:'mainscreen'
-    MDFloatLayout:
-        md_bg_color: rgba(246,250,255,255)
+
+    
+    ScrollView:
+        do_scroll_x: True
+        do_scroll_y: True
         
-        MDIconButton:
-            icon: "arrow-left"
-            pos_hint:{"center_x":0.1,"center_y":0.97}
-            user_font_size: "30sp"
-            theme_text_color: "Custom"
-            text_color: rgba(71,92,119,255)
-            on_press:
-                root.manager.current = 'login screen'
-                root.manager.transition.direction = 'right'
-        MovementAnalysisCard:
-            orientation: "vertical"
-            padding: "10dp"
-            spacing: "5dp"
-            pos_hint: {"center_x":0.5,"center_y":0.78}
-            md_bg_color: 1,1,1,1
-            radius:(20,20,20,20)
-            size_hint: 0.9,0.3
-            elevation: 6
-            MDLabel:
-                text: "Movement Analysis"
-                theme_text_color: "Secondary"
-                font_size: "20sp"
-                pos_hint: {"center_x": 0.56, "center_y":0.82}
-                color: rgba(71,92,119,255)
-            MDSeparator:
-                pos_hint: {"center_x": 0.46, "center_y":0.74}
-                color: rgba(71,92,119,255)
-                pos: self.pos
-                size_hint:0.82,0.01
-            MDLabel:
-                text: "sitting"
-                font_size: "20sp"
-                pos_hint: {"center_x": 0.56, "center_y":0.65}
-                color: rgba(71,92,119,255)
-            GridLayout:
-                cols: 3
-                orientation: "tb-lr"
-                size_hint_y: None
-                pos_hint: {"center_x": 0.56, "center_y": 0.38}
-                height: self.minimum_height
-                padding: "4dp"
+        
+        MDFloatLayout:
+            md_bg_color: rgba(246,250,255,255)
+            size_hint_y: None
+            #pos_hint: {"center_x":0.5,"center_y":0.5}
+            height: dp(800)
+            width: dp(800)
+            cols: 3
+        
+            MovementAnalysisCard:
+                orientation: "vertical"
+                padding: "10dp"
                 spacing: "5dp"
-                MDSwitch:
-                    id: Checkin
+                pos_hint: {"center_x":0.5,"center_y":0.80}
+                md_bg_color: 1,1,1,1
+                radius:(20,20,20,20)
+                size_hint: 0.9,0.30
+                elevation: 6
                 MDLabel:
-                    text: "Check-in"
-                    font_size: "12dp"
-                MDSwitch:
-                    id: Checkout              
+                    text: "Movement Analysis"
+                    theme_text_color: "Secondary"
+                    font_size: "20sp"
+                    pos_hint: {"center_x": 0.56, "center_y":0.88}
+                    color: rgba(71,92,119,255)
+                MDSeparator:
+                    pos_hint: {"center_x": 0.46, "center_y":0.78}
+                    color: rgba(71,92,119,255)
+                    pos: self.pos
+                    size_hint:0.82,0.01
                 MDLabel:
-                    text: "Check-out"
-                    font_size: "12dp"
-                MDSwitch:
-                    id: Notifications
+                    text: "sitting"
+                    font_size: "20sp"
+                    pos_hint: {"center_x": 0.56, "center_y":0.67}
+                    color: rgba(71,92,119,255)
+                GridLayout:
+                    cols: 3
+                    orientation: "tb-lr"
+                    size_hint_y: None
+                    pos_hint: {"center_x": 0.56, "center_y": 0.40}
+                    height: self.minimum_height
+                    padding: "4dp"
+                    spacing: "5dp"
+                    MDSwitch:
+                        id: Checkin
+                    MDLabel:
+                        text: "Check-in"
+                        font_size: "12dp"
+                    MDSwitch:
+                        id: Checkout              
+                    MDLabel:
+                        text: "Check-out"
+                        font_size: "12dp"
+                    MDSwitch:
+                        id: Notifications
+                    MDLabel:
+                        text: "Notifications"
+                        font_size: "12dp"
+
+            MotivationTaskCard:
+                orientation: "vertical"
+                padding: "10dp"
+                spacing: "5dp"
+                pos_hint: {"center_x":0.5,"center_y":0.35}
+                md_bg_color: 1,1,1,1
+                radius:(20,20,20,20)
+                size_hint: 0.9,0.55
+                elevation: 6
                 MDLabel:
-                    text: "Notifications"
-                    font_size: "12dp"
-    MotivationTaskCard:
-        orientation: "vertical"
-        padding: "10dp"
-        spacing: "5dp"
-        pos_hint: {"center_x":0.5,"center_y":0.42}
-        md_bg_color: 1,1,1,1
-        radius:(20,20,20,20)
-        size_hint: 0.9,0.40
-        elevation: 6
-        MDLabel:
-            text: "Motivation Tasks"
-            theme_text_color: "Secondary"
-            font_size: "20sp"
-            pos_hint: {"center_x": 0.56, "center_y":0.88}
-            color: rgba(71,92,119,255)
-        MDSeparator:
-            pos_hint: {"center_x": 0.46, "center_y":0.81}
-            color: rgba(71,92,119,255)
-            pos: self.pos
-            size_hint:0.82,0.01
-        GridLayout:
-            cols: 2
-            orientation: "tb-lr"
-            size_hint_y: None
-            pos_hint: {"center_x": 0.49, "center_y": 0.74}
-            height: self.minimum_height
-            padding: "4dp"
-            spacing: "5dp"
-            MDCheckbox:
-                size_hint: None, None
-                size: "50dp", "50dp"
-            MDLabel:
-                text: "Motivation Tasks"
-                font_size: "14dp"
-        GridLayout:
-            cols: 2
-            orientation: "tb-lr"
-            size_hint_y: None
-            pos_hint: {"center_x": 0.49, "center_y": 0.60}
-            height: self.minimum_height
-            padding: "4dp"
-            spacing: "5dp"
-            MDCheckbox:
-                size_hint: None, None
-                size: "50dp", "50dp"
-            MDLabel:
-                text: "Motivation Tasks"
-                font_size: "14dp"
-        GridLayout:
-            cols: 2
-            orientation: "tb-lr"
-            size_hint_y: None
-            pos_hint: {"center_x": 0.49, "center_y": 0.46}
-            height: self.minimum_height
-            padding: "4dp"
-            spacing: "5dp"
-            MDCheckbox:
-                size_hint: None, None
-                size: "50dp", "50dp"
-            MDLabel:
-                text: "Motivation Tasks"
-                font_size: "14dp"
-        GridLayout:
-            cols: 2
-            orientation: "tb-lr"
-            size_hint_y: None
-            pos_hint: {"center_x": 0.49, "center_y": 0.32}
-            height: self.minimum_height
-            padding: "4dp"
-            spacing: "5dp"
-            MDCheckbox:
-                size_hint: None, None
-                size: "50dp", "50dp"
-            MDLabel:
-                text: "Motivation Tasks"
-                font_size: "14dp"
-        MDRoundFlatButton:
-            text:"Remind Me"
-            theme_text_color: "Custom"
-            pos_hint: {"center_x": 0.5, "center_y": 0.14}
-    MDRoundFlatButton:
-        text:"Activity Graphs"
-        theme_text_color: "Custom"
-        pos_hint: {"center_x": 0.5, "center_y": 0.15}
-        on_press:
-            root.manager.current = 'activitiygraphscreen'
-            root.manager.transition.direction = 'left'
-    MDRoundFlatButton:
-        text:"Settings"
-        theme_text_color: "Custom"
-        pos_hint: {"center_x": 0.5, "center_y": 0.06}
-        radius: 150,150,150,150
-        on_press:
-            root.manager.current = 'setting'
-            root.manager.transition.direction = 'right'
+                    text: "Motivation Tasks"
+                    theme_text_color: "Secondary"
+                    font_size: "20sp"
+                    pos_hint: {"center_x": 0.56, "center_y":0.92}
+                    color: rgba(71,92,119,255)
+                MDSeparator:
+                    pos_hint: {"center_x": 0.46, "center_y":0.85}
+                    color: rgba(71,92,119,255)
+                    pos: self.pos
+                    size_hint:0.82,0.01
+                GridLayout:
+                    cols: 2
+                    orientation: "tb-lr"
+                    size_hint_y: None
+                    pos_hint: {"center_x": 0.49, "center_y": 0.75}
+                    height: self.minimum_height
+                    padding: "4dp"
+                    spacing: "5dp"
+                    MDCheckbox:
+                        size_hint: None, None
+                        size: "50dp", "50dp"
+                    MDLabel:
+                        text: "This could be a motivation task. But be carefull."
+                        font_size: "15dp"
+                        size: self.texture_size
+                GridLayout:
+                    cols: 2
+                    orientation: "tb-lr"
+                    size_hint_y: None
+                    pos_hint: {"center_x": 0.49, "center_y": 0.60}
+                    height: self.minimum_height
+                    padding: "4dp"
+                    spacing: "5dp"
+                    MDCheckbox:
+                        size_hint: None, None
+                        size: "50dp", "50dp"
+                    MDLabel:
+                        text: "Motivation Tasks"
+                        font_size: "14dp"
+                GridLayout:
+                    cols: 2
+                    orientation: "tb-lr"
+                    size_hint_y: None
+                    pos_hint: {"center_x": 0.49, "center_y": 0.46}
+                    height: self.minimum_height
+                    padding: "4dp"
+                    spacing: "5dp"
+                    MDCheckbox:
+                        size_hint: None, None
+                        size: "50dp", "50dp"
+                    MDLabel:
+                        text: "Motivation Tasks"
+                        font_size: "14dp"
+                GridLayout:
+                    cols: 2
+                    orientation: "tb-lr"
+                    size_hint_y: None
+                    pos_hint: {"center_x": 0.49, "center_y": 0.32}
+                    height: self.minimum_height
+                    padding: "4dp"
+                    spacing: "5dp"
+                    MDCheckbox:
+                        size_hint: None, None
+                        size: "50dp", "50dp"
+                    MDLabel:
+                        text: "Motivation Tasks"
+                        font_size: "14dp"
+                MDRoundFlatButton:
+                    text:"Remind Me"
+                    theme_text_color: "Custom"
+                    pos_hint: {"center_x": 0.5, "center_y": 0.22}  
+
+                GridLayout:
+                    cols: 2
+                    orientation: "tb-lr"
+                    size_hint_y: None
+                    pos_hint: {"center_x": 0.54, "center_y": 0.10}
+                    height: self.minimum_height
+                    padding: "2dp"
+                    spacing: "50dp"
+
+                    MDRoundFlatButton:
+                        text:"Activity Graphs"
+                        theme_text_color: "Custom"
+                        pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                        on_press:
+                            root.manager.current = 'activitiygraphscreen'
+                            root.manager.transition.direction = 'left'
+                    MDRoundFlatButton:
+                        text:"Settings"
+                        theme_text_color: "Custom"
+                        pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                        radius: 150,150,150,150
+                        on_press:
+                            root.manager.current = 'setting'
+                            root.manager.transition.direction = 'right'
+                
 <ActivityGraphScreen>:  
     name:'activitiygraphscreen'
     MDIconButton:
@@ -606,7 +622,6 @@ ScreenManager:
             color_active: [1,1,1,1]
         
         MDTextFieldRound:
-            id: click_label
             hint_text: "Age"
             size_hint_x: None
             width: 220
@@ -621,7 +636,7 @@ ScreenManager:
             font_size: 20
             pos_hint: {"center_x":.5}
             color_active: [1,1,1,1]
-        
+
         MDTextFieldRound:
             hint_text: "Height [m]"
             size_hint_x: None
@@ -629,6 +644,7 @@ ScreenManager:
             font_size: 20
             pos_hint: {"center_x":.5}
             color_active: [1,1,1,1]
+
         MDTextFieldRound:
             hint_text: "Job position"
             size_hint_x: None
@@ -683,6 +699,21 @@ ScreenManager:
         orientation : "vertical"
         radius: 20,20,20,20
         # Adding items to the card
+
+
+
+            
+
+
+
+
+
+
+
+
+
+        
+
 
 
 
