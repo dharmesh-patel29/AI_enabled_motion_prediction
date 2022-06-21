@@ -1,7 +1,4 @@
-# Creating App
-from cProfile import Profile
-from calendar import c
-from unicodedata import name
+
 from kivymd.app import MDApp
 from kivy.uix.screenmanager import ScreenManager, Screen
 from kivy.lang import Builder
@@ -10,20 +7,9 @@ from kivy.core.text import LabelBase
 from kivymd.uix.behaviors import FakeRectangularElevationBehavior
 from kivymd.uix.floatlayout import MDFloatLayout
 from kivy.uix.widget import Widget
-from kivymd.uix.screen import MDScreen
 from kivymd.uix.card import MDCard
 from kivy.uix.scrollview import ScrollView
-from kivymd.uix.behaviors import RoundedRectangularElevationBehavior
-from kivymd.uix.menu import MDDropdownMenu
-from kivymd.uix.menu import MDDropdownMenu
-from kivy.metrics import dp
-from kivy.properties import StringProperty
-from kivy.properties import ObjectProperty
 from kivy.uix.floatlayout import FloatLayout
-
-import test # importing self made
-
-from kivymd.uix.list import OneLineIconListItem
 
 Window.size= (320,510)
 
@@ -54,18 +40,20 @@ class YearlyGraph(Screen):
 class Setting(Screen):
     pass
 
-class Profile(Screen):
+class EditProfile(Screen):
     pass
 
 class Notification(Screen):
     pass
 
+class SystemPermission(Screen):
+    pass
+
+class UserData(Screen):
+    pass
+
 class ProfileScoller(ScrollView):
     pass
-
-class MDCard1(MDCard):
-    pass
-
 
 sm = ScreenManager()
 sm.add_widget(LoginScreen(name='login screen'))
@@ -76,7 +64,9 @@ sm.add_widget(DailyGraph(name='dailygraph'))
 sm.add_widget(MonthlyGraph(name='monthlygraph'))
 sm.add_widget(YearlyGraph(name='yearlygraph'))
 sm.add_widget(Setting(name='setting'))
-sm.add_widget(Profile(name='profile'))
+sm.add_widget(EditProfile(name='profile'))
+sm.add_widget(SystemPermission(name='systempermission'))
+sm.add_widget(UserData(name='userdata'))
 
 class ProfileCard(MDFloatLayout, FakeRectangularElevationBehavior):
     pass
@@ -98,18 +88,10 @@ class SettingsCard(ProfileCard):
 class Layout_(FloatLayout):
     pass
 
-
 class MyApp(MDApp):
-    
-
-    def build(self):
-        
+    def build(self):        
         self.theme_cls.theme_style = "Light"
         return Builder.load_file('myapp.kv')
-
-
-
-
-       
+      
 if __name__ == "__main__":
     MyApp().run()

@@ -7,9 +7,10 @@ ScreenManager:
     MonthlyGraph:
     YearlyGraph:
     Setting:
-    Profile:
-    MDScreen:
+    EditProfile:
     Notification:
+    SystemPermission:
+    UserData:
 
 <LoginScreen>:
     name:'login screen'
@@ -298,7 +299,7 @@ ScreenManager:
                         radius: 150,150,150,150
                         on_press:
                             root.manager.current = 'setting'
-                            root.manager.transition.direction = 'right'
+                            root.manager.transition.direction = 'left'
                 
 <ActivityGraphScreen>:  
     name:'activitiygraphscreen'
@@ -571,23 +572,47 @@ ScreenManager:
         pos_hint: {"center_x": 0.90, "center_y":0.97}
         color: rgba(71,92,119,255)
     MDRoundFlatButton:
-        text:"Profile"
+        text:"Edit Profile"
         theme_text_color: "Custom"
         radius: 30,30,30,30
-        pos_hint: {"center_x": 0.50, "center_y": 0.50}
+        pos_hint: {"center_x": 0.50, "center_y": 0.70}
         on_press:
-            root.manager.current = 'profile'
-            root.manager.transition.direction = 'right'
+            root.manager.current = 'editprofile'
+            root.manager.transition.direction = 'left'
     MDRoundFlatButton:
         text:"Notification Settings"
         theme_text_color: "Custom"
         radius: 30,30,30,30
-        pos_hint: {"center_x": 0.50, "center_y": 0.40}
+        pos_hint: {"center_x": 0.50, "center_y": 0.60}
         on_press:
             root.manager.current = 'notification'
+    MDRoundFlatButton:
+        text: "User Data"
+        font_size: 14
+        pos_hint: {"center_x":.5,"center_y": 0.50}
+        theme_text_color: "Custom"
+        on_press:
+            root.manager.current = 'userdata'
+            root.manager.transition.direction = 'left'
+    MDRoundFlatButton:
+        text:"SystemPermission"
+        theme_text_color: "Custom"
+        radius: 30,30,30,30
+        pos_hint: {"center_x": 0.50, "center_y": 0.40}
+        on_press:
+            root.manager.current = 'systempermission'
 
-<Profile>:
-    name: 'profile'
+    MDRoundFlatButton:
+        text: "LOg OUt"
+        font_size: 14
+        pos_hint: {"center_x":.5,"center_y": 0.30}
+        theme_text_color: "Custom"
+        on_press:
+            root.manager.current = 'login screen'
+            root.manager.transition.direction = 'left'
+
+<EditProfile>:
+    name: 'editprofile'
     MDIconButton:
         icon: "arrow-left"
         pos_hint:{"center_x":0.1,"center_y":0.97}
@@ -598,7 +623,7 @@ ScreenManager:
             root.manager.current = 'setting'
             root.manager.transition.direction = 'left'
     MDLabel:
-        text: "Profile"
+        text: "Edit Profile"
         theme_text_color: "Secondary"
         font_size: "20sp"
         pos_hint: {"center_x": 0.90, "center_y":0.97}
@@ -606,18 +631,19 @@ ScreenManager:
     UserCard:
         size_hint : None,None
         size :280,470
-        pos_hint : {"center_x":.5,"center_y":.45}
+        pos_hint : {"center_x":.5,"center_y":.48}
         elevation : 15
-        padding : 10
+        padding : 5
         spacing : 5
         orientation : "vertical"
+        radius: 20,20,20,20
         # Adding items to the card
         
         MDTextFieldRound:
             hint_text: "Name"
             size_hint_x: None
             width: 220
-            font_size: 20
+            font_size: 14
             pos_hint: {"center_x":.5}
             color_active: [1,1,1,1]
         
@@ -625,7 +651,15 @@ ScreenManager:
             hint_text: "Age"
             size_hint_x: None
             width: 220
-            font_size: 20
+            font_size: 14
+            pos_hint: {"center_x":.5}
+            color_active: [1,1,1,1]
+
+        MDTextFieldRound:
+            hint_text: "Gender"
+            size_hint_x: None
+            width: 220
+            font_size: 14
             pos_hint: {"center_x":.5}
             color_active: [1,1,1,1]
         
@@ -633,7 +667,7 @@ ScreenManager:
             hint_text: "Weight [kg]"
             size_hint_x: None
             width: 220
-            font_size: 20
+            font_size: 14
             pos_hint: {"center_x":.5}
             color_active: [1,1,1,1]
 
@@ -641,35 +675,22 @@ ScreenManager:
             hint_text: "Height [m]"
             size_hint_x: None
             width: 220
-            font_size: 20
+            font_size: 14
             pos_hint: {"center_x":.5}
             color_active: [1,1,1,1]
-
         MDTextFieldRound:
             hint_text: "Job position"
             size_hint_x: None
             width: 220
-            font_size: 20
+            font_size: 14
             pos_hint: {"center_x":.5}
             color_active: [1,1,1,1]
             
         MDRoundFlatButton:
             text: "Save"
-            font_size: 15
+            font_size: 14
             pos_hint: {"center_x":.5}
             theme_text_color: "Custom"
-            #on_press:
-                #root.manager.current = 'setting'
-                #root.manager.transition.direction = 'right'
-
-        MDRoundFlatButton:
-            text: "BACK"
-            font_size: 15
-            pos_hint: {"center_x":.5}
-            theme_text_color: "Custom"
-            on_press:
-                root.manager.current = 'setting'
-                root.manager.transition.direction = 'right'
 
 <Notification>:
     name: 'notification'
@@ -700,51 +721,241 @@ ScreenManager:
         radius: 20,20,20,20
         # Adding items to the card
 
+<SystemPermission>:
 
+    name: 'systempermission'
+    MDIconButton:
+        icon: "arrow-left"
+        pos_hint:{"center_x":0.1,"center_y":0.97}
+        user_font_size: "30sp"
+        theme_text_color: "Custom"
+        text_color: rgba(71,92,119,255)
+        on_press:
+            root.manager.current = 'setting'
+            root.manager.transition.direction = 'left'
 
+    MDLabel:
+        text: "System Permission"
+        theme_text_color: "Secondary"
+        font_size: "20sp"
+        pos_hint: {"center_x": 0.75, "center_y":0.97}
+        color: rgba(71,92,119,255)
+
+    UserCard:
+        size_hint : None,None
+        size :280,170
+        pos_hint : {"center_x":.5,"center_y":.60}
+        elevation : 15
+        padding : 5
+        spacing : 5
+        orientation : "vertical"
+        radius: 20,20,20,20
+
+        GridLayout:
+            cols: 5
+            orientation: "tb-lr"
+            size_hint_y: None
+            pos_hint: {"center_x": 0.49, "center_y": 0.90}
+            height: self.minimum_height
+            padding: "1dp"
+            spacing: "1dp"
+
+            MDLabel:
+                text: "Motion Sensor"
+                font_size: "14dp"
+                size: self.texture_size
+            MDCheckbox:
+                size_hint: None, None
+                size: "50dp", "50dp"
+            MDLabel:
+                text: "Allow"
+                font_size: "12dp"
+                size: self.texture_size
+            MDCheckbox:
+                size_hint: None, None
+                size: "50dp", "50dp"
+            MDLabel:
+                text: "Decline"
+                font_size: "12dp"
+                size: self.texture_size
+
+        GridLayout:
+            cols: 5
+            orientation: "tb-lr"
+            size_hint_y: None
+            pos_hint: {"center_x": 0.49, "center_y": 0.75}
+            height: self.minimum_height
+            padding: "1dp"
+            spacing: "1dp"
+
+            MDLabel:
+                text: "Bluetooth Access:"
+                font_size: "13dp"
+                size: self.texture_size
+            MDCheckbox:
+                size_hint: None, None
+                size: "50dp", "50dp"
+            MDLabel:
+                text: "Allow"
+                font_size: "12dp"
+                size: self.texture_size
+            MDCheckbox:
+                size_hint: None, None
+                size: "50dp", "50dp"
+            MDLabel:
+                text: "Decline"
+                font_size: "12dp"
+                size: self.texture_size
+
+        GridLayout:
+            cols: 5
+            orientation: "tb-lr"
+            size_hint_y: None
+            pos_hint: {"center_x": 0.49, "center_y": 0.63}
+            height: self.minimum_height
+            padding: "1dp"
+            spacing: "1dp"
+
+            MDLabel:
+                text: "Memory Access"
+                font_size: "13dp"
+                size: self.texture_size
+            MDCheckbox:
+                size_hint: None, None
+                size: "50dp", "50dp"
+            MDLabel:
+                text: "Allow"
+                font_size: "12dp"
+                size: self.texture_size
+            MDCheckbox:
+                size_hint: None, None
+                size: "50dp", "50dp"
+            MDLabel:
+                text: "Decline"
+                font_size: "12dp"
+                size: self.texture_size
+
+<UserData>:
+    name: 'userdata'
+
+    MDIconButton:
+        icon: "arrow-left"
+        pos_hint:{"center_x":0.1,"center_y":0.97}
+        user_font_size: "30sp"
+        theme_text_color: "Custom"
+        text_color: rgba(71,92,119,255)
+        on_press:
+            root.manager.current = 'setting'
+            root.manager.transition.direction = 'left'
+
+    MDLabel:
+        text: "User Data"
+        theme_text_color: "Secondary"
+        font_size: "20sp"
+        pos_hint: {"center_x": 0.84, "center_y":0.97}
+        color: rgba(71,92,119,255)
+
+    UserCard:
+        size_hint : None,None
+        size :280,470
+        pos_hint : {"center_x":.5,"center_y":.48}
+        elevation : 15
+        padding : 15
+        spacing : 15
+        orientation : "vertical"
+        radius: 20,20,20,20
+
+        GridLayout:
+            cols: 2
+            orientation: "tb-lr"
+            size_hint_y: None
+            pos_hint: {"center_x": 0.55, "center_y": 0.1}
+            height: self.minimum_height
+            padding: "4dp"
+            spacing: "5dp"
             
+            MDLabel:
+                text: "Name:        "
+                font_size: "18dp"
+            MDLabel:
+                font_size: "18dp"
+                text: "******"
+
+        GridLayout:
+            cols: 2
+            orientation: "tb-lr"
+            pos_hint: {"center_x": 0.55, "center_y": 0.80}
+            height: self.minimum_height
+            padding: "4dp"
+            spacing: "5dp"
+            
+            MDLabel:
+                text: "Age:        "
+                font_size: "18dp"
+            MDLabel:
+                font_size: "18dp"
+                text: "******"
+
+        GridLayout:
+            cols: 2
+            orientation: "tb-lr"
+            pos_hint: {"center_x": 0.55, "center_y": 0.70}
+            height: self.minimum_height
+            padding: "4dp"
+            spacing: "5dp"
+            
+            MDLabel:
+                text: "Gender:        "
+                font_size: "18dp"
+            MDLabel:
+                text: "******"
+                font_size: "18dp"
+
+        GridLayout:
+            cols: 2
+            orientation: "tb-lr"
+            pos_hint: {"center_x": 0.55, "center_y": 0.60}
+            height: self.minimum_height
+            padding: "4dp"
+            spacing: "5dp"
+            
+            MDLabel:
+                text: "Weight [kg]:        "
+                font_size: "18dp"
+            MDLabel:
+                text: "******"
+                font_size: "18dp"
+
+        GridLayout:
+            cols: 2
+            orientation: "tb-lr"
+            pos_hint: {"center_x": 0.55, "center_y": 0.50}
+            height: self.minimum_height
+            padding: "4dp"
+            spacing: "5dp"
+            
+            MDLabel:
+                text: "Height [m]:        "
+                font_size: "18dp"
+            MDLabel:
+                text: "******"
+                font_size: "18dp"
+
+        GridLayout:
+            cols: 2
+            orientation: "tb-lr"
+            pos_hint: {"center_x": 0.55, "center_y": 0.40}
+            height: self.minimum_height
+            padding: "4dp"
+            spacing: "5dp"
+            
+            MDLabel:
+                text: "Job Position:        "
+                font_size: "18dp"
+            MDLabel:
+                text: "******"
+                font_size: "18dp"
 
 
 
-
-
-
-
-
-
-        
-
-
-
-
-       
-
-        
-
-
-        
-
-
-
-        
-        
-           
-    
-
-
-    
-
-        
-
-
-    
-
-
-    
-
-
-
-
-        
-        
 
