@@ -12,7 +12,7 @@ from kivy.uix.scrollview import ScrollView
 from kivy.uix.floatlayout import FloatLayout
 from kivy.uix.image import Image 
 
-Window.size= (320,510)
+Window.size= (320,500)
 
 class MDScreen(Screen):
     pass
