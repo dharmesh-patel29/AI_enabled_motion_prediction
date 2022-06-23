@@ -13,6 +13,7 @@ ScreenManager:
     UserData:
 
 <LoginScreen>:
+    
     name:'login screen'
     MDCard:
         size_hint : None,None
@@ -89,7 +90,6 @@ ScreenManager:
             width: 270
             font_size: 20
             pos_hint: {"center_x":.5}
-            normal_color: [35/255,49/255,48/255,1]
             color_active: [1,1,1,1]
         MDTextFieldRound: 
             hint_text: "password"
@@ -99,7 +99,6 @@ ScreenManager:
             width: 270
             font_size: 20
             pos_hint: {"center_x":.5}
-            normal_color: [35/255,49/255,48/255,1]
             color_active: [1,1,1,1]
         MDTextFieldRound: 
             hint_text: "confirm-password"
@@ -109,7 +108,6 @@ ScreenManager:
             width: 270
             font_size: 20
             pos_hint: {"center_x":.5}
-            normal_color: [35/255,49/255,48/255,1]
             color_active: [1,1,1,1]
         MDRoundFlatButton:
             text: "SIGN-UP"
@@ -130,8 +128,6 @@ ScreenManager:
 
 <MainScreen>:  
     name:'mainscreen'
-
-    
     ScrollView:
         do_scroll_x: True
         do_scroll_y: True
@@ -144,7 +140,6 @@ ScreenManager:
             height: dp(800)
             width: dp(800)
             cols: 3
-        
             MovementAnalysisCard:
                 orientation: "vertical"
                 padding: "10dp"
@@ -646,7 +641,7 @@ ScreenManager:
             font_size: 14
             pos_hint: {"center_x":.5}
             color_active: [1,1,1,1]
-        
+  
         MDTextFieldRound:
             hint_text: "Age"
             size_hint_x: None
@@ -670,6 +665,7 @@ ScreenManager:
             font_size: 14
             pos_hint: {"center_x":.5}
             color_active: [1,1,1,1]
+            
 
         MDTextFieldRound:
             hint_text: "Height [m]"
@@ -720,7 +716,6 @@ ScreenManager:
         orientation : "vertical"
         radius: 20,20,20,20
         # Adding items to the card
-
 <SystemPermission>:
 
     name: 'systempermission'
@@ -762,23 +757,15 @@ ScreenManager:
 
             MDLabel:
                 text: "Motion Sensor"
-                font_size: "14dp"
+                font_size: "15dp"
                 size: self.texture_size
             MDCheckbox:
                 size_hint: None, None
                 size: "50dp", "50dp"
             MDLabel:
-                text: "Allow"
+                text: "Allow/Decline"
                 font_size: "12dp"
                 size: self.texture_size
-            MDCheckbox:
-                size_hint: None, None
-                size: "50dp", "50dp"
-            MDLabel:
-                text: "Decline"
-                font_size: "12dp"
-                size: self.texture_size
-
         GridLayout:
             cols: 5
             orientation: "tb-lr"
@@ -790,20 +777,13 @@ ScreenManager:
 
             MDLabel:
                 text: "Bluetooth Access:"
-                font_size: "13dp"
+                font_size: "15dp"
                 size: self.texture_size
             MDCheckbox:
                 size_hint: None, None
                 size: "50dp", "50dp"
             MDLabel:
-                text: "Allow"
-                font_size: "12dp"
-                size: self.texture_size
-            MDCheckbox:
-                size_hint: None, None
-                size: "50dp", "50dp"
-            MDLabel:
-                text: "Decline"
+                text: "Allow/Decline"
                 font_size: "12dp"
                 size: self.texture_size
 
@@ -817,21 +797,14 @@ ScreenManager:
             spacing: "1dp"
 
             MDLabel:
-                text: "Memory Access"
-                font_size: "13dp"
+                text: "Memory Access:"
+                font_size: "15dp"
                 size: self.texture_size
             MDCheckbox:
                 size_hint: None, None
                 size: "50dp", "50dp"
             MDLabel:
-                text: "Allow"
-                font_size: "12dp"
-                size: self.texture_size
-            MDCheckbox:
-                size_hint: None, None
-                size: "50dp", "50dp"
-            MDLabel:
-                text: "Decline"
+                text: "Allow/Decline"
                 font_size: "12dp"
                 size: self.texture_size
 
@@ -955,6 +928,7 @@ ScreenManager:
             MDLabel:
                 text: "******"
                 font_size: "18dp"
+
 
 
 

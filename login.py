@@ -10,6 +10,7 @@ from kivy.uix.widget import Widget
 from kivymd.uix.card import MDCard
 from kivy.uix.scrollview import ScrollView
 from kivy.uix.floatlayout import FloatLayout
+from kivy.uix.image import Image 
 
 Window.size= (320,510)
 
@@ -92,6 +93,6 @@ class MyApp(MDApp):
     def build(self):        
         self.theme_cls.theme_style = "Light"
         return Builder.load_file('myapp.kv')
-      
+              
 if __name__ == "__main__":
     MyApp().run()
