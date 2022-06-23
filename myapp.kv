@@ -166,7 +166,7 @@ ScreenManager:
                     pos_hint: {"center_x": 0.56, "center_y":0.67}
                     color: rgba(71,92,119,255)
                 GridLayout:
-                    cols: 3
+                    cols: 2
                     orientation: "tb-lr"
                     size_hint_y: None
                     pos_hint: {"center_x": 0.56, "center_y": 0.40}
@@ -174,14 +174,9 @@ ScreenManager:
                     padding: "4dp"
                     spacing: "5dp"
                     MDSwitch:
-                        id: Checkin
+                        id: Check-out/Check-In
                     MDLabel:
-                        text: "Check-in"
-                        font_size: "12dp"
-                    MDSwitch:
-                        id: Checkout              
-                    MDLabel:
-                        text: "Check-out"
+                        text: "Check-out/Check-in"
                         font_size: "12dp"
                     MDSwitch:
                         id: Notifications
