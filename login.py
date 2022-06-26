@@ -1,4 +1,5 @@
 
+from turtle import width
 from kivymd.app import MDApp
 from kivy.uix.screenmanager import ScreenManager, Screen
 from kivy.lang import Builder
@@ -10,7 +11,12 @@ from kivy.uix.widget import Widget
 from kivymd.uix.card import MDCard
 from kivy.uix.scrollview import ScrollView
 from kivy.uix.floatlayout import FloatLayout
-from kivy.uix.image import Image 
+
+
+
+
+
+
 
 Window.size= (320,500)
 
@@ -73,6 +79,7 @@ class ProfileCard(MDFloatLayout, FakeRectangularElevationBehavior):
     pass
 
 class UserCard(MDCard):
+
     pass
 
 class MovementAnalysisCard(ProfileCard):
@@ -89,10 +96,15 @@ class SettingsCard(ProfileCard):
 class Layout_(FloatLayout):
     pass
 
+
 class MyApp(MDApp):
+
     def build(self):        
         self.theme_cls.theme_style = "Light"
         return Builder.load_file('myapp.kv')
+
+
+
               
 if __name__ == "__main__":
     MyApp().run()

@@ -1,3 +1,4 @@
+#:import get_color_from_hex kivy.utils.get_color_from_hex
 ScreenManager:
     LoginScreen:
     SignupScreen:
@@ -213,6 +214,7 @@ ScreenManager:
                     padding: "4dp"
                     spacing: "5dp"
                     MDCheckbox:
+                        group: "check0"
                         size_hint: None, None
                         size: "50dp", "50dp"
                     MDLabel:
@@ -228,6 +230,7 @@ ScreenManager:
                     padding: "4dp"
                     spacing: "5dp"
                     MDCheckbox:
+                        group: "check0" 
                         size_hint: None, None
                         size: "50dp", "50dp"
                     MDLabel:
@@ -242,6 +245,7 @@ ScreenManager:
                     padding: "4dp"
                     spacing: "5dp"
                     MDCheckbox:
+                        group: "check0"
                         size_hint: None, None
                         size: "50dp", "50dp"
                     MDLabel:
@@ -256,6 +260,7 @@ ScreenManager:
                     padding: "4dp"
                     spacing: "5dp"
                     MDCheckbox:
+                        group: "check0"
                         size_hint: None, None
                         size: "50dp", "50dp"
                     MDLabel:
@@ -345,6 +350,7 @@ ScreenManager:
                     root.manager.current = 'yearlygraph'
 <DailyGraph>:
     name: 'dailygraph'
+    
     MDIconButton:
         icon: "arrow-left"
         pos_hint:{"center_x":0.1,"center_y":0.97}
@@ -618,70 +624,135 @@ ScreenManager:
         font_size: "20sp"
         pos_hint: {"center_x": 0.90, "center_y":0.97}
         color: rgba(71,92,119,255)
-    UserCard:
+    MDCard:
         size_hint : None,None
-        size :280,470
-        pos_hint : {"center_x":.5,"center_y":.48}
+        size :250,450
+        pos_hint : {"center_x":.5,"center_y":.5}
         elevation : 15
-        padding : 5
-        spacing : 5
+        padding : 2
+        spacing : 2
         orientation : "vertical"
-        radius: 20,20,20,20
-        # Adding items to the card
-        
-        MDTextFieldRound:
-            hint_text: "Name"
-            size_hint_x: None
-            width: 220
-            font_size: 14
-            pos_hint: {"center_x":.5}
-            color_active: [1,1,1,1]
-  
-        MDTextFieldRound:
-            hint_text: "Age"
-            size_hint_x: None
-            width: 220
-            font_size: 14
-            pos_hint: {"center_x":.5}
-            color_active: [1,1,1,1]
+        FloatLayout:
+            padding : 2
+            spacing : 2
+            orientation : "vertical"
+            MDTextFieldRound:
+                hint_text: "Name"
+                size_hint_x: None
+                width: 220
+                font_size: 14
+                pos_hint: {"center_x":.5,"center_y":0.95}
+                color_active: [1,1,1,1]
 
-        MDTextFieldRound:
-            hint_text: "Gender"
-            size_hint_x: None
-            width: 220
-            font_size: 14
-            pos_hint: {"center_x":.5}
-            color_active: [1,1,1,1]
         
-        MDTextFieldRound:
-            hint_text: "Weight [kg]"
-            size_hint_x: None
-            width: 220
-            font_size: 14
-            pos_hint: {"center_x":.5}
-            color_active: [1,1,1,1]
-            
+            MDTextFieldRound:
+                hint_text: "Weight [kg]"
+                size_hint_x: None
+                width: 220
+                font_size: 14
+                pos_hint: {"center_x":.5,"center_y":0.85}
+                color_active: [1,1,1,1]
+                
 
-        MDTextFieldRound:
-            hint_text: "Height [m]"
-            size_hint_x: None
-            width: 220
-            font_size: 14
-            pos_hint: {"center_x":.5}
-            color_active: [1,1,1,1]
-        MDTextFieldRound:
-            hint_text: "Job position"
-            size_hint_x: None
-            width: 220
-            font_size: 14
-            pos_hint: {"center_x":.5}
-            color_active: [1,1,1,1]
-            
-        MDRoundFlatButton:
-            text: "Save"
-            font_size: 14
-            pos_hint: {"center_x":.5}
-            theme_text_color: "Custom"
+            MDTextFieldRound:
+                hint_text: "Height [m]"
+                size_hint_x: None
+                width: 220
+                font_size: 14
+                pos_hint: {"center_x":.5,"center_y":0.75}
+                color_active: [1,1,1,1]
+            MDTextFieldRound:
+                hint_text: "Job position"
+                size_hint_x: None
+                width: 220
+                font_size: 14
+                pos_hint: {"center_x":.5,"center_y":0.65}
+                color_active: [1,1,1,1]
+
+            MDLabel:
+                text: "Select your age range : "
+                pos_hint: {"center_x":0.55,"center_y":0.55}
+                font_size: "14dp"
+
+            GridLayout:
+                cols: 4
+                orientation: "tb-lr"
+                size_hint_y: None
+                pos_hint: {"center_x": 0.55, "center_y": 0.45}
+                height: self.minimum_height
+                padding: "4dp"
+                spacing: "5dp"
+                MDCheckbox:
+                    group: "check"
+                    size_hint: None, None
+                    size: "25dp", "25dp"
+                MDLabel:
+                    text: "21-30"
+                    font_size: "14dp"
+                MDCheckbox:
+                    group: "check"
+                    size_hint: None, None
+                    size: "25dp", "25dp"
+                MDLabel:
+                    text: "31-40"
+                    font_size: "14dp"
+                MDCheckbox:
+                    group: "check"
+                    size_hint: None, None
+                    size: "25dp", "25dp"
+                MDLabel:
+                    text: "41-50"
+                    font_size: "14dp"
+                MDCheckbox:
+                    group: "check"
+                    size_hint: None, None
+                    size: "25dp", "25dp"
+                MDLabel:
+                    text: "51+"
+                    font_size: "14dp"
+
+            MDLabel:
+                text: "Select your gender : "
+                pos_hint: {"center_x":0.55,"center_y":0.35}
+                font_size: "14dp"
+
+            GridLayout:
+                cols: 3
+                orientation: "tb-lr"
+                size_hint_y: None
+                pos_hint: {"center_x": 0.55, "center_y": 0.25}
+                height: self.minimum_height
+                padding: "4dp"
+                spacing: "5dp"
+
+                MDCheckbox:
+                    group: "check2"
+                    size_hint: None, None
+                    size: "25dp", "25dp"
+                MDLabel:
+                    text: "Male"
+                    font_size: "14dp"
+                MDCheckbox:
+                    group: "check2"
+                    size_hint: None, None
+                    size: "25dp", "25dp"
+                MDLabel:
+                    text: "Female"
+                    font_size: "14dp"
+                MDCheckbox:
+                    group: "check2"
+                    size_hint: None, None
+                    size: "25dp", "25dp"
+                MDLabel:
+                    text: "Other"
+                    font_size: "14dp"
+
+            MDRoundFlatButton:
+                text: "Save"
+                font_size: 14
+                pos_hint: {"center_x":.5, "center_y": 0.10}
+                theme_text_color: "Custom"
+                
 
 <Notification>:
     name: 'notification'
@@ -695,22 +766,99 @@ ScreenManager:
         on_press:
             root.manager.current = 'setting'
             root.manager.transition.direction = 'left'
+
     MDLabel:
         text: "Notification"
         theme_text_color: "Secondary"
         font_size: "20sp"
-        pos_hint: {"center_x": 0.90, "center_y":0.97}
+        pos_hint: {"center_x": 0.86, "center_y":0.97}
+    MDLabel:
+        text: "Notification reminder"
+        theme_text_color: "Secondary"
+        font_size: "15sp"
+        pos_hint: {"center_x": 0.80, "center_y":0.80}
         color: rgba(71,92,119,255)
-    UserCard:
+
+    MDCard:
         size_hint : None,None
-        size :280,470
-        pos_hint : {"center_x":.5,"center_y":.45}
+        size :200,150
+        pos_hint : {"center_x":.5,"center_y":.6}
         elevation : 30
-        padding : 10
-        spacing : 5
+        padding : 2
+        spacing : 2
         orientation : "vertical"
-        radius: 20,20,20,20
         # Adding items to the card
+
+        GridLayout:
+            cols: 2
+            orientation: "tb-lr"
+            size_hint_y: None
+            pos_hint: {"center_x": 0.55, "center_y": 0.45}
+            height: self.minimum_height
+            padding: "4dp"
+            spacing: "5dp"
+            MDCheckbox:
+                group: "check3"
+                size_hint: None, None
+                size: "25dp", "25dp"
+            MDLabel:
+                text: "1 Hour"
+                font_size: "14dp"
+
+        GridLayout:
+            cols: 2
+            orientation: "tb-lr"
+            size_hint_y: None
+            pos_hint: {"center_x": 0.55, "center_y": 0.45}
+            height: self.minimum_height
+            padding: "4dp"
+            spacing: "5dp"
+            MDCheckbox:
+                group: "check3"
+                size_hint: None, None
+                size: "25dp", "25dp"
+            MDLabel:
+                text: "2 Hours"
+                font_size: "14dp"
+
+        GridLayout:
+            cols: 2
+            orientation: "tb-lr"
+            size_hint_y: None
+            pos_hint: {"center_x": 0.55, "center_y": 0.45}
+            height: self.minimum_height
+            padding: "4dp"
+            spacing: "5dp"
+            MDCheckbox:
+                group: "check3"
+                size_hint: None, None
+                size: "25dp", "25dp"
+            MDLabel:
+                text: "3 hours"
+                font_size: "14dp"
+
+        GridLayout:
+            cols: 2
+            orientation: "tb-lr"
+            size_hint_y: None
+            pos_hint: {"center_x": 0.55, "center_y": 0.45}
+            height: self.minimum_height
+            padding: "4dp"
+            spacing: "5dp"
+            MDCheckbox:
+                group: "check3"
+                size_hint: None, None
+                size: "25dp", "25dp"
+            MDLabel:
+                text: "4 Hours"
+                font_size: "14dp"
+
+    MDRoundFlatButton:
+        text: "Save"
+        font_size: 14
+        pos_hint: {"center_x":.5, "center_y": 0.30}
+        theme_text_color: "Custom"
+
 <SystemPermission>:
 
     name: 'systempermission'
@@ -731,7 +879,7 @@ ScreenManager:
         pos_hint: {"center_x": 0.75, "center_y":0.97}
         color: rgba(71,92,119,255)
 
-    UserCard:
+    MDCard:
         size_hint : None,None
         size :280,170
         pos_hint : {"center_x":.5,"center_y":.60}
@@ -923,7 +1071,6 @@ ScreenManager:
             MDLabel:
                 text: "******"
                 font_size: "18dp"
-
 
 
 
